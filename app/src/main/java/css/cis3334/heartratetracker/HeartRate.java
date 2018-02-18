@@ -14,8 +14,8 @@ public class HeartRate {
     private Double percent;         // percent of maximum rate
     private Integer range;          // which range this heart rate is in, used as index into arrays below
 
-    String rangeNames[] = {"Resting", "Moderate", "Endurance", "Aerobic","Anaerobic","Red zone"};
-    String rangeDescriptions[] = {"In active or resting", "Weight maintenance and warm up", "Fitness and fat burning", "Cardio training and endurance","Hardcore interval training","Maximum Effort"};
+    String rangeNames[] = {"Resting", "Moderate", "Endurance", "Aerobic", "Anaerobic", "Redzone"};
+    String rangeDescriptions[] = {"In active or resting", "Weight maintenance and warm up", "Fitness and fat burning", "Cardio training and endurance", "Hardcore interval training", "Maximum Effort"};
     Double rangeBounds[] = {.50, .60, .70, .80, .90, 1.00};
 
     public HeartRate(Integer heartRate, Integer age) {
@@ -26,15 +26,15 @@ public class HeartRate {
 
     public Integer calcHeartRange(Integer age) {
         maxHeartRate = 220.0 - age;        // from  http://www.cdc.gov/physicalactivity/basics/measuring/heartrate.htm
-        percent = pulse /maxHeartRate;
-        for (int i=0; i<rangeNames.length; i++) {
-            if ( percent < rangeBounds[i] ) {
+        percent = pulse / maxHeartRate;
+        for (int i = 0; i < rangeNames.length; i++) {
+            if (percent < rangeBounds[i]) {
                 // heartrate is in this range
                 range = i;
                 return range;          // break out of this loop
             }
         }
-        return rangeNames.length-1;                      // this should never happen
+        return rangeNames.length - 1;                      // this should never happen
     }
 
     public Integer getRange() {
@@ -47,7 +47,7 @@ public class HeartRate {
         return rangeNames[range];
     }
 
-    public String getRangeDescrtiption() {
+    public String getRangeDescription() {
         calcHeartRange(age);
         return rangeDescriptions[range];
     }
@@ -71,6 +71,6 @@ public class HeartRate {
 
     @Override
     public String toString() {
-        return "HeartRate = " + pulse + " - " + getRangeName();
+        return "\nHeartRate = " + pulse + "\nRange: " + getRangeName()+ "\n\"" +getRangeDescription()+ "\"\n";
     }
 }

@@ -3,4 +3,12 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    //Added the colors for each of the ranges
+    <color name="colorResting">#21ed07</color>
+    <color name="colorModerate">#89ed07</color>
+    <color name="colorEndurance">#edd607</color>
+    <color name="colorAerobic">#ed7a07</color>
+    <color name="colorAnaerobic">#ed4807</color>
+    <color name="colorRedzone">#ff0000</color>
 </resources>
