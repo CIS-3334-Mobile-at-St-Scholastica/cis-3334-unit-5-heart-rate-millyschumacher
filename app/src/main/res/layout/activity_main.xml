@@ -12,7 +12,13 @@
     android:orientation="vertical">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/textViewSelect"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:text="Select A Heart Rate" />
+
+    <ListView
+        android:id="@+id/lViewHeartRate"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 </LinearLayout>
