@@ -50,12 +50,30 @@ public class HeartRateAdapter  extends ArrayAdapter<HeartRate> {
         HeartRate hr = hrList.getHeartRate(position);
 
         //Sets up the pulse views
-        TextView tvPulse=(TextView)view.findViewById(R.id.txtvwDisplayPulse);
+        TextView tvPulse=(TextView)view.findViewById(R.id.textViewPulse);
         tvPulse.setText(hr.getPulse().toString());
 
+        TextView tvRangeName = (TextView)view.findViewById(R.id.textViewRangeName);
+        tvRangeName.setText(hr.getRangeName().toString());
 
+        TextView tvRangeDescription = (TextView)view.findViewById(R.id.textViewRangeDescription);
+        tvRangeDescription.setText("\"" + hr.getRangeDescription().toString() + "\"");
+
+        //The app displays the range based on the user's selection
+        if (hr.getRangeName()=="Resting") {
+            tvRangeName.setBackgroundColor(ContextCompat.getColor(context,R.color.colorResting));
+        } else if (hr.getRangeName()=="Moderate") {
+            tvRangeName.setBackgroundColor(ContextCompat.getColor(context,R.color.colorModerate));
+        } else if (hr.getRangeName()=="Endurance") {
+            tvRangeName.setBackgroundColor(ContextCompat.getColor(context,R.color.colorEndurance));
+        } else if (hr.getRangeName()=="Aerobic") {
+            tvRangeName.setBackgroundColor(ContextCompat.getColor(context,R.color.colorAerobic));
+        } else if (hr.getRangeName()=="Anaerobic") {
+            tvRangeName.setBackgroundColor(ContextCompat.getColor(context,R.color.colorAnaerobic));
+        } else {
+            tvRangeName.setBackgroundColor(ContextCompat.getColor(context,R.color.colorRedzone));
+        }
 
         return(view);
     }
-
 }
